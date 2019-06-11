@@ -6,9 +6,18 @@ import java.util.Scanner;
 public class RepeatedString {
 	 // Complete the repeatedString function below.
     static long repeatedString(String s, long n) {
-    	if(s.length() == 1 && s.equals('a')) {
-    		return n;
+    	if(s == null) {
+    		return 0;
     	}
+    	if(s.length() == 1) {
+    		if( s.equals("a")) {
+    			return n;
+    		}
+    		else{
+    			return 0;
+    		}
+    	}
+    	
     	long occurenceOfA = findMaxOccurenceOfA(s);
     	long totalOccurence = ( n/s.length() * occurenceOfA);
     	int remainder =(int) (n%s.length());
@@ -16,7 +25,10 @@ public class RepeatedString {
     	return (totalOccurence+remainderOccurence);
     }
 
-    private static long findMaxOccurenceOfA(String s) {
+    public static long findMaxOccurenceOfA(String s) {
+    	if(s == null) {
+    		return 0;
+    	}
 		long count=0;
     	for(char c: s.toCharArray()) {
 			if(c == 'a') {
