@@ -13,8 +13,8 @@ public class StringPrefixes {
 		
 	}
 
-	private static String findPrefix(String[] split) {
-		if(split.length == 0) {
+	public static String findPrefix(String[] split) {
+		if(split == null || split.length == 0) {
 			return "";
 		}
 		else if(split.length == 1) {
@@ -28,7 +28,10 @@ public class StringPrefixes {
 		return prefix;
 	}
 
-	private static String calculatePrefix(String prefix, String string) {
+	public static String calculatePrefix(String prefix, String string) {
+		if(prefix == null || string == null) {
+			return "";
+		}
 		int min = Math.min(prefix.length(), string.length());
 		int i =0;
 		for( i =0; i<min;i++) {
